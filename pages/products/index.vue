@@ -1,8 +1,8 @@
 <template>
-  <div class="l-wrapper">
-    <div class="grid grid-cols-4 gap-5">
-      <div v-for="p in data.products" :key="p">
-        <ProductCard :product="p" />
+  <div>
+    <div class="grid grid-cols-4 gap-4">
+      <div v-for="product in data.products" :key="product">
+        <ProductCard :product="product" />
       </div>
     </div>
   </div>
@@ -15,8 +15,6 @@ definePageMeta({
 
 const { data } = await useFetch("https://dummyjson.com/products");
 
-console.dir(data);
-
 useHead({
   title: "Merch page",
   meta: [{ name: "description", content: "Merch page test buy a merch" }],
@@ -24,26 +22,7 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
-.slide-left-enter-active,
-.slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: all 0.2s;
-}
-.slide-left-enter-from {
-  opacity: 0;
-  transform: translate(50px, 0);
-}
-.slide-left-leave-to {
-  opacity: 0;
-  transform: translate(-50px, 0);
-}
-.slide-right-enter-from {
-  opacity: 0;
-  transform: translate(-50px, 0);
-}
-.slide-right-leave-to {
-  opacity: 0;
-  transform: translate(50px, 0);
+.router-link-exact-active {
+  color: #12b488;
 }
 </style>

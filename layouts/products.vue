@@ -1,31 +1,39 @@
 <template>
-  <div class="l-wrapper mx-auto shadow flex flex-col justify-between">
-    <header class="mx-auto container shadow bg-white h-30 ">
-      <nav class="flex self-center shadow">
-        <NuxtLink to="/products">Nuxt Dojo Merch</NuxtLink>
-      </nav>
-    </header>
-
-    <!-- output page content -->
-    <div class="bg-white container mx-auto">
+  <div>
+    <Header />
+    <div class="l-wrapper mt-10">
       <slot />
     </div>
-
-    <footer class="container mx-auto shadow bg-slate-50 border-t-2">
-      <ul class="flex gap-5">
-        <li><NuxtLink to="/">Home</NuxtLink></li>
-        <li><NuxtLink to="/about">About</NuxtLink></li>
-        <li><NuxtLink to="/products">Products</NuxtLink></li>
-      </ul>
-    </footer>
   </div>
 </template>
 
 <script setup>
+definePageMeta({
+  pageTransition: {
+    name: "slide-right",
+  },
+});
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .router-link-exact-active {
   color: #12b488;
+}
+
+.rotate-enter-active,
+.rotate-leave-active {
+  transition: all 0.4s;
+}
+.rotate-enter-from,
+.rotate-leave-to {
+  opacity: 0;
+  transform: rotate3d(1, 1, 1, 15deg);
+}
+
+.slide-left-enter-active,
+.slide-left-leave-active,
+.slide-right-enter-active,
+.slide-right-leave-active {
+  transition: all 0.2s;
 }
 </style>

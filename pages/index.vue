@@ -1,12 +1,6 @@
 <template>
-  <div class="l-wrapper">
-    
-    <h2>Home page</h2>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit dolorum
-      commodi beatae consectetur eveniet labore ad perferendis sed similique
-      nulla.
-    </p>
+  <div class="mx-auto max-w-3xl pt-5">
+    <Filter />
   </div>
 </template>
 
@@ -16,6 +10,7 @@ definePageMeta({
   pageTransition: {
     name: "slide-right",
   },
+  // layout: "products",
 });
 </script>
 
