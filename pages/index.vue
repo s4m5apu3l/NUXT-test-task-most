@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="l-wrapper">
     
     <h2>Home page</h2>
     <p>

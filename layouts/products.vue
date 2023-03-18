@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-auto shadow bg-slate-200 flex flex-col justify-between">
+  <div class="l-wrapper mx-auto shadow flex flex-col justify-between">
     <header class="mx-auto container shadow bg-white h-30 ">
       <nav class="flex self-center shadow">
         <NuxtLink to="/products">Nuxt Dojo Merch</NuxtLink>

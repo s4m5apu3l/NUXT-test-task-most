@@ -1,8 +1,8 @@
 <template>
   <div class="mx-auto">
-    <header class="shadow-sm bg-white max-auto px-6">
+    <header class="l-wrapper shadow-sm bg-white w-full px-6">
       <nav
-        class="mx-auto p-4 flex self-center justify-between flex-row"
+        class="w-full p-4 flex self-center justify-between flex-row"
       >
         <NuxtLink to="/" class="font-bold block'">
           <img class="max-w-1 w-28" src="../assets/img/log.png" alt="" />

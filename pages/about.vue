@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="l-wrapper">
     <h2>About page</h2>
     <p>
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit dolorum

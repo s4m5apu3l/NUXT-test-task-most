@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="l-wrapper">
     <div class="grid grid-cols-4 gap-5">
-      <div v-for="p in products" :key="p">
+      <div v-for="p in data.products" :key="p">
         <ProductCard :product="p" />
       </div>
     </div>
@@ -9,20 +9,18 @@
 </template>
 
 <script setup>
-  definePageMeta({
-    layout: 'products'
-  })
+definePageMeta({
+  layout: "products",
+});
 
-  const { data: products } = await useFetch('https://fakestoreapi.com/products');
-  
+const { data } = await useFetch("https://dummyjson.com/products");
 
-  useHead({
-    title:'Merch page',
-    meta: [
-      {name: 'description', content: 'Merch page test buy a merch'}
-    ]
-  })
+console.dir(data);
 
+useHead({
+  title: "Merch page",
+  meta: [{ name: "description", content: "Merch page test buy a merch" }],
+});
 </script>
 
 <style lang="scss" scoped>

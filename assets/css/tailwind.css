@@ -19,4 +19,8 @@ body {
   .thumb {
     @apply p-2.5 shadow-md rounded flex w-full mr-auto h-64;
   }
+
+  .l-wrapper {
+    @apply max-w-screen-xl mx-auto px-10 
+  }
 }
