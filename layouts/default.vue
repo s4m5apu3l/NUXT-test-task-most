@@ -1,11 +1,12 @@
 <template>
   <div class="">
     <Header />
-
-    <!-- output page content -->
-    <div class="l-wrapper">
+    <main>
+      <div class="l-wrapper">
       <slot />
     </div>
+    </main>
+
   </div>
 </template>
 

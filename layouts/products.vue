@@ -1,9 +1,11 @@
 <template>
   <div>
     <Header />
-    <div class="l-wrapper mt-10">
-      <slot />
-    </div>
+    <main>
+      <div class="l-wrapper mt-10">
+        <slot />
+      </div>
+    </main>
   </div>
 </template>
 

@@ -5,9 +5,15 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     'nuxt-swiper',
   ],
+  // imports: {
+  //   dirs: ['./stores'],
+  // },
+  // pinia: {
+  //   autoImports: ['defineStore', 'acceptHMRUpdate'],
+  // },
   app: {
     head: {
-      title: "Онлайн магазин",
+      title: "Online shop",
       meta: [{ name: "description", content: "test task from appmost" }],
       link: [
         {
@@ -30,6 +36,10 @@ export default defineNuxtConfig({
       ],
     },
     pageTransition: { name: "page", mode: "out-in" },
-    layoutTransition: { name: 'layout', mode: 'out-in' }
+    layoutTransition: { name: 'layout', mode: 'out-in' },
+    useRuntimeConfig: {
+      apiKey: '',
+        apiBaseUrl: '',
+    }
   },
 });
