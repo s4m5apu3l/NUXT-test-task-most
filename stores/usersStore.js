@@ -15,6 +15,7 @@ export const usersStore = defineStore("users", {
       }
     },
     async addUserFetch(user) {
+      // const index = this.users.findIndex((u) => u.id === id);
       const body = JSON.stringify(user)
       const { data, error } = await useFetch(
         "https://dummyjson.com/users/add",
@@ -25,7 +26,9 @@ export const usersStore = defineStore("users", {
         }
       );
       if (data.value) {
-        this.users.push(data.value.users);
+        this.users.push(data.value);
+        // this.users.splice(index, 1, data.value);
+        console.log(this.users)
       } else {
         console.log(error);
       }
@@ -41,7 +44,7 @@ export const usersStore = defineStore("users", {
         }
       );
       if (data.value) {
-        // this.users.push(data.value.users);
+        // this.users.push(data.value);
         this.users.splice(index, 1, data.value);
       } else {
         console.log(error);
@@ -58,7 +61,6 @@ export const usersStore = defineStore("users", {
       if (data.value) {
         console.dir(data.value);
         this.users.splice(index, 1);
-        // this.users.push(data.value);
       } else {
         console.log(error);
       }

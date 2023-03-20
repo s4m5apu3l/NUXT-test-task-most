@@ -42,7 +42,9 @@
               {{ user.firstName }}
             </td>
             <td class="py-2 px-4 border border-gray-300">{{ user.email }}</td>
-            <td class="py-2 px-4 border border-gray-300">
+            <td
+              class="py-2 px-4 border border-gray-300 flex items-center gap-3"
+            >
               <button
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 @click="editUser(user)"
@@ -143,10 +145,11 @@ const editUser = (user) => {
 
 const showAddForm = () => {
   // form.id = Math.floor(Math.random() * 1000);
-  form.id = null,
+  // form.id = '',
   form.firstName = "";
   form.email = "";
   showForm.value = true;
+
 };
 
 const addUser = async () => {
@@ -169,19 +172,18 @@ const deleteUserBtn = async (id) => {
 };
 
 const cancelForm = () => {
-  form.id = null;
+  // form.id = null;
   form.firstName = "";
   form.email = "";
   showForm.value = false;
+
 };
 
 const submitForm = () => {
   if (form.id) {
     updateUser();
     // console.log('from update user', form.id)
-  } 
-  if(form.id == null) {
-
+  } else {
     addUser();
   }
 };
