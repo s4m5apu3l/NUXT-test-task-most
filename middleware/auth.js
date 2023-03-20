@@ -2,7 +2,11 @@ import { storeToRefs } from "pinia";
 import { authStore } from "~~/stores/authStore";
 
 export default function ({ redirect }) {
+  const token = useCookie("token");
   const { isAuth } = storeToRefs(authStore());
+  if (token.value) {
+    isAuth.value = true;
+  }
 
   if (!isAuth.value) {
     return navigateTo("/login");
@@ -23,7 +27,6 @@ export default function ({ redirect }) {
 //   if (token.value && to?.name === "login") {
 //     return navigateTo("/admin");
 //   }
-
 
 //   // if token doesn't exist redirect to log in
 //   // if (!token.value && to?.name !== "login") {

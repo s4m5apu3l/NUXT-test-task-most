@@ -11,9 +11,9 @@
 - [x] add filter categorys:(
 - [ ] add spinner when pending
 - [ ] add active class when category clicked
-- [ ] add cart
-- [ ] add auth
-- [ ] add admin page
+- [x] add cart
+- [x] add auth
+- [x] add admin page
 - [ ] add crud for users when u admin
 - [ ] add mobile
 ## Setup
