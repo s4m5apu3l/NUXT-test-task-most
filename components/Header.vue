@@ -57,7 +57,7 @@ const { logUserOut } = authStore();
 const { isAuth } = storeToRefs(authStore());
 const logout = () => {
   logUserOut();
-  // router.push("/");
+  router.push("/");
 };
 </script>
 

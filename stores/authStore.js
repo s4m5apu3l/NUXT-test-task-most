@@ -12,6 +12,7 @@ export const authStore = defineStore("auth", {
       firstName: "",
       lastName: "",
       status: false,
+      error:'',
     },
     isAuth: false,
   }),
@@ -21,9 +22,12 @@ export const authStore = defineStore("auth", {
     },
   },
   actions: {
+    clearErrorMsg() {
+      this.user.error = null;
+    },
     async auth(username, password) {
       // this.isLoading = true;
-      const { data } = await useFetch("https://dummyjson.com/auth/login", {
+      const { data, error } = await useFetch("https://dummyjson.com/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: {
@@ -38,8 +42,9 @@ export const authStore = defineStore("auth", {
         this.user.username = data.value.username;
         this.isAuth = true;
       } else {
-        console.log("error auth");
+        // console.log(error);
         this.error = true;
+        this.user.error = error.value.data.message;
       }
     },
     logUserOut() {

@@ -5,7 +5,7 @@ export default function ({ redirect }) {
   const { isAuth } = storeToRefs(authStore());
 
   if (!isAuth.value) {
-    return redirect('/login');
+    return navigateTo("/login");
   }
 }
 

@@ -9,6 +9,7 @@
             type="text"
             class="input"
             v-model="state.username"
+            :class="{ error: errorMsg }"
           />
         </div>
         <div class="col-span-3 mb-4">
@@ -19,8 +20,10 @@
             type="text"
             id="password"
             class="input"
+            :class="{ error: errorMsg }"
           />
         </div>
+        <span v-if="errorMsg" class="font-bold  text-red-600"> {{ errorMsg }}</span>
         <div class="col-span-6">
           <button
             @click.prevent="onSubmit"
@@ -52,6 +55,7 @@ const state = ref({
 const { auth } = userStore;
 
 const onSubmit = async () => {
+  userStore.clearErrorMsg();
   await auth(state.value.username, state.value.password);
 };
 
@@ -65,12 +69,23 @@ userStore.$subscribe((mutation, piniaState) => {
 });
 
 const errorMsg = computed(() => {
-  return userStore.getUser.msg;
+  return userStore.getUser.error;
 });
 </script>
 
 <style lang="scss" scoped>
 .router-link-exact-active {
   color: black !important;
+}
+.error {
+  border-color: #e6c9ce !important;
+  background: #fcf6f7 !important;
+}
+.error-msg {
+  color: #b53629;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  transform: translate3d(-65px, -2px, 10px);
 }
 </style>
