@@ -1,12 +1,12 @@
 # Test task from appmost
 
 ## cant use npm for normally every time i used --legacy-peer-deps idk
-## nado bulo poxody scrut url zaprosov
+## nado bulo poxody scrut' url zaprosov
 
-***This is a todo list for an Anime App, with the following tasks:***
+***This is a todo list for an Test task, with the following tasks:***
 - [x] add products
 - [ ] add pages
-- [ ] add show sort 5 in 100
+- [ ] add show sort 5 in 100 for products
 - [x] add filterSearch
 - [x] add filter categorys:(
 - [ ] add spinner when pending
@@ -16,7 +16,17 @@
 - [x] add admin page
 - [ ] add crud for users when u admin
 - [ ] add mobile
+
+
+
 ## Setup
+
+### clone this repository
+
+```bash
+# git
+git clone https://github.com/s4m5apu3l/online-shop-nuxt3.git
+```
 
 Make sure to install the dependencies:
 
@@ -53,4 +63,3 @@ Locally preview production build:
 npm run preview
 ```
 
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

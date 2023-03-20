@@ -64,7 +64,7 @@ const onSubmit = async () => {
 
 userStore.$subscribe((mutation, piniaState) => {
   if (piniaState.user.status) {
-    router.push("/admin");
+    router.push("/admin/");
   }
 });
 
