@@ -141,8 +141,21 @@ const editUser = (user) => {
   showForm.value = true;
 };
 
+const showAddForm = () => {
+  // form.id = Math.floor(Math.random() * 1000);
+  form.id = null,
+  form.firstName = "";
+  form.email = "";
+  showForm.value = true;
+};
+
 const addUser = async () => {
   await addUserFetch(form);
+  cancelForm();
+};
+
+const updateUser = async () => {
+  await updateUserFetch(form.id, form);
   cancelForm();
 };
 
@@ -153,18 +166,6 @@ const deleteUserBtn = async (id) => {
   } else {
     // Handle error
   }
-};
-
-const updateUser = async () => {
-  await updateUserFetch(form.id, form);
-  cancelForm();
-};
-
-const showAddForm = () => {
-  form.id = Math.floor(Math.random() * 1000);
-  form.firstName = "";
-  form.email = "";
-  showForm.value = true;
 };
 
 const cancelForm = () => {
@@ -178,7 +179,8 @@ const submitForm = () => {
   if (form.id) {
     updateUser();
     // console.log('from update user', form.id)
-  } else {
+  } 
+  if(form.id == null) {
 
     addUser();
   }

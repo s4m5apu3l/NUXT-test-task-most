@@ -7,7 +7,7 @@ export const usersStore = defineStore("users", {
   getters: {},
   actions: {
     async fetchUsers() {
-      const { data, error } = await useFetch("https://dummyjson.com/users");
+      const { data, error } = await useFetch("https://dummyjson.com/users?limit=5");
       if (data.value) {
         this.users = data.value.users;
       } else {
@@ -15,12 +15,13 @@ export const usersStore = defineStore("users", {
       }
     },
     async addUserFetch(user) {
+      const body = JSON.stringify(user)
       const { data, error } = await useFetch(
         "https://dummyjson.com/users/add",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: user,
+          body: body,
         }
       );
       if (data.value) {
@@ -31,7 +32,7 @@ export const usersStore = defineStore("users", {
     },
     async updateUserFetch(id, user) {
       const index = this.users.findIndex((u) => u.id === id);
-      const { data, refresh, error } = await useFetch(
+      const { data, error } = await useFetch(
         `https://dummyjson.com/users/${id}`,
         {
           method: "PUT",
