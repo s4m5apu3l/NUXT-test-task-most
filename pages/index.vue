@@ -1,6 +1,6 @@
 <template>
   <div class="mx-auto max-w-3xl pt-5">
-    <Filter />
+    main page
   </div>
 </template>
 
@@ -18,9 +18,6 @@ definePageMeta({
 h2 {
   margin-bottom: 20px;
   font-size: 36px;
-}
-p {
-  margin: 20px;
 }
 
 .page-enter-active,

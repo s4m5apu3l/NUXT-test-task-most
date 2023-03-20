@@ -3,6 +3,19 @@
 ## cant use npm for normally every time i used --legacy-peer-deps idk
 ## nado bulo poxody scrut url zaprosov
 
+***This is a todo list for an Anime App, with the following tasks:***
+- [x] add products
+- [ ] add pages
+- [ ] add show sort 5 in 100
+- [x] add filterSearch
+- [x] add filter categorys:(
+- [ ] add spinner when pending
+- [ ] add active class when category clicked
+- [ ] add cart
+- [ ] add auth
+- [ ] add admin page
+- [ ] add crud for users when u admin
+- [ ] add mobile
 ## Setup
 
 Make sure to install the dependencies:

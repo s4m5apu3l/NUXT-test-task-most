@@ -4,49 +4,75 @@ export const dataStore = defineStore("products", {
   state: () => ({
     products: [],
     categories: [],
-    sortOption: "name",
-    sortOrder: "asc",
+    selectedCategory: "",
+    sortOptions: [
+      { value: "Price", label: "Price" },
+      { value: "A-Z", label: "A-Z" },
+      { value: "Z-A", label: "Z-A" },
+    ],
+    sortType: "",
     searchTerm: "",
     error: false,
+    cart: [],
+    isLoading: false,
   }),
 
   getters: {
-    // getError() {
-    //   return this.error
-    // },
-    // getProducts() {
-    //   return this.products;
-    // },
-    // filteredProducts: (state) => {
-    //   let filteredProducts = [...state.products];
-    //   if (state.searchTerm) {
-    //     filteredProducts = filteredProducts.filter((product) =>
-    //       product.name.toLowerCase().includes(state.searchTerm.toLowerCase())
-    //     );
-    //   }
-    //   if (state.sortOption) {
-    //     const sortField = state.sortOption;
-    //     const sortOrder = state.sortOrder === "asc" ? 1 : -1;
-    //     filteredProducts = filteredProducts.sort((a, b) =>
-    //       a[sortField] > b[sortField] ? sortOrder : -sortOrder
-    //     );
-    //   }
-    //   return filteredProducts;
-    // },
+    getNumProducts() {
+      return this.products.length;
+    },
+    filteredProducts() {
+      let products = [...this.products];
+      if (this.selectedCategory !== "") {
+        products = products.filter(
+          (product) => product.category === this.selectedCategory
+        );
+      } else if (this.searchTerm !== "") {
+        products = products.filter((product) =>
+          product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+        );
+      }
+      if (this.sortType === "Price") {
+        products = products.sort((a, b) => a.price - b.price);
+      } else if (this.sortType === "A-Z") {
+        products = products.sort((a, b) => {
+          return a.title.localeCompare(b.title);
+        });
+      } 
+      else if (this.sortType === "Z-A") {
+        products = products.sort((a, b) =>
+          b.title.toLowerCase().localeCompare(a.title.toLowerCase())
+        );
+      }
+      return products;
+    },
+    // sortByPrice() {
+    //   console.log('done sort get')
+    //   return this.products.sort((a, b) => a.price - b.price)
+    //   // this.products.value.sort((a, b) => {
+    //   //   return a.price - b.price;
+    //   // });
+    // }
   },
 
   actions: {
+    setSortType(sortType) {
+      this.sortType = sortType;
+    },
     async getError() {
       return this.error;
     },
     async fetchProducts() {
+      // this.isLoading = true;
       const { data } = await useFetch("https://dummyjson.com/products");
       if (data.value) {
         this.products = data.value.products;
         // console.log(data.value.products);
+        // this.isLoading = false;
       } else {
-        console.log(error);
-        this.error = true
+        console.log("error fetch products");
+        this.error = true;
+        // this.isLoading = true;
       }
     },
 
@@ -60,42 +86,39 @@ export const dataStore = defineStore("products", {
         this.error = false;
       }
       if (data.value.total == 0) {
-        console.log('pusto')
+        console.log("pusto");
         this.error = true;
-      } 
+      }
     },
-    // async fetchCategories() {
-    //   const response = await axios.get(
-    //     "https://dummyjson.com/products/categories"
-    //   );
-    //   this.categories = response.data;
-    // },
-
-    // setSortOption(value) {
-    //   this.sortOption = value;
-    // },
-
-    // setSortOrder(value) {
-    //   this.sortOrder = value;
-    // },
-
-    // searchProducts(searchTerm) {
-    //   this.searchTerm = searchTerm;
-
-    //   if (searchTerm) {
-    //     useFetch(`https://dummyjson.com/products/search?q=${searchTerm}`)
-    //       .then((response) => {
-    //         this.products = response.data;
-    //       })
-    //       .catch((error) => {
-    //         console.error(error);
-    //       });
-    //   } else {
-    //     this.fetchProducts();
-    //   }
-    // },
+    async fetchCategories() {
+      const { data } = await useFetch(
+        "https://dummyjson.com/products/categories"
+      );
+      if (data.value) {
+        // this.products = data.value.products;
+        this.categories = data.value || [];
+        // console.log("fetch categories", data.value);
+      } else {
+        console.log("error fetch category");
+        this.error = true;
+      }
+    },
+    async fetchProductsByCategory(category) {
+      const { data } = await useFetch(
+        `https://dummyjson.com/products/category/${category}`
+      );
+      if (data.value) {
+        console.dir(data.value.products);
+        this.products = data.value.products;
+      }
+    },
+    updateSelectedCategory(category) {
+      this.selectedCategory = category;
+      if (category === "") {
+        this.fetchProducts();
+      } else {
+        this.fetchProductsByCategory(category);
+      }
+    },
   },
-  // return: {
-  //   fetchProducts(),
-  // }
 });

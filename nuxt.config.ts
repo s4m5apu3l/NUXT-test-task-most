@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     'nuxt-swiper',
+    // '@vueuse/nuxt',
   ],
   // imports: {
   //   dirs: ['./stores'],
@@ -40,6 +41,6 @@ export default defineNuxtConfig({
     useRuntimeConfig: {
       apiKey: '',
         apiBaseUrl: '',
-    }
+    },
   },
 });
