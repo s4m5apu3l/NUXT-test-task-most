@@ -21,7 +21,7 @@
 
 <style lang="scss">
 .router-link-exact-active {
-  color: #12b488;
+  color: #2a12b4;
 }
 
 </style>

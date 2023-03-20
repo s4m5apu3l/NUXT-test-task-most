@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   modules: [
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
-    'nuxt-swiper',
+    "nuxt-swiper",
     // '@vueuse/nuxt',
   ],
   // imports: {
@@ -26,21 +26,27 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com",
         },
         {
-          rel:"preconnect",
-          href:"https://fonts.gstatic.com",
+          rel: "preconnect",
+          href: "https://fonts.gstatic.com",
         },
         {
-          rel:"stylesheet",
-          href:"https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap",
+          rel: "stylesheet",
+          href: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700&display=swap",
         },
-
+      ],
+      script: [
+        {
+          // hid: "stripe",
+          src: "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js",
+          // defer: true,
+        },
       ],
     },
     pageTransition: { name: "page", mode: "out-in" },
-    layoutTransition: { name: 'layout', mode: 'out-in' },
+    layoutTransition: { name: "layout", mode: "out-in" },
     useRuntimeConfig: {
-      apiKey: '',
-        apiBaseUrl: '',
+      apiKey: "",
+      apiBaseUrl: "",
     },
   },
 });

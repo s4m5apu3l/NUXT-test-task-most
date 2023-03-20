@@ -14,7 +14,7 @@
                 <i class="material-icons mr-2">add_shopping_cart</i>
                 <p
                   v-if="store.getNumProducts"
-                  class="absolute bg-red-700 w-6 h-6 flex justify-center items-center rounded-full text-white text-xs top-[-15px] right-[-9px]"
+                  class="absolute bg-blue-600 w-6 h-6 flex justify-center items-center rounded-full text-white text-xs top-[-15px] right-[-9px]"
                 >
                   {{ store.getNumProducts }}
                 </p>
@@ -31,13 +31,13 @@
             <NuxtLink to="/about/" class="font-bold block'"> About </NuxtLink>
           </li>
           <li v-if="!isAuth">
-            <NuxtLink to="/login" class="btn">Login</NuxtLink>
+            <NuxtLink to="/login" class="mx-2 my-2 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-6 py-2 text-xs">Login</NuxtLink>
           </li>
           <li v-if="isAuth">
             <NuxtLink to="/admin"  class="cursor-pointer">Admin page</NuxtLink>
           </li>
           <li v-if="isAuth">
-            <NuxtLink @click="logout" class="btn cursor-pointer">Log out</NuxtLink>
+            <NuxtLink @click="logout" class="mx-2 my-2 bg-indigo-700 transition duration-150 ease-in-out hover:bg-indigo-600 rounded text-white px-6 py-2 text-xs">Log out</NuxtLink>
           </li>
 
         </ul>

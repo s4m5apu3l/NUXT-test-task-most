@@ -10,6 +10,7 @@
       <span class="text-4xl flex">NOT FOUND</span>
     </div>
   </div>
+
 </template>
 
 <script setup>
@@ -20,7 +21,7 @@ const store = dataStore();
 const { products } = defineProps(["products"]);
 
 const { fetchProducts } = store;
-const { error } = storeToRefs(store);
+const { error, pending } = storeToRefs(store);
 // await fetchProducts();  
 
 // onMounted(() => {

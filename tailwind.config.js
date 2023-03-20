@@ -4,6 +4,9 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
-  important: true,
+  plugins: [require("windstrap")],
+  // important: true,
+  purge: {
+    layers: ["base", "utilities"],
+  },
 }

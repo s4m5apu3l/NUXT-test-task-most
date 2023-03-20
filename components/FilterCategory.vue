@@ -1,10 +1,10 @@
 <template>
-  <Swiper  :free-mode="true" class="mb-10">
+  <Swiper :slides-per-view="4" :free-mode="true" class="mb-10">
     <SwiperSlide
       v-for="category in categories"
       :key="category"
-      class="mr-2 w-60 cursor-pointer text-center rounded bg-blue-200"
-
+      class=" mr-2 border-2 border-blue-600 rounded-lg px-3 py-2 text-blue-400 cursor-pointer hover:bg-blue-600 hover:text-blue-200"
+      
       @click="$emit('updateSelectedCategory', category)"
     >
       {{ category }}

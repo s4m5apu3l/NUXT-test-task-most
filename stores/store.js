@@ -15,6 +15,7 @@ export const dataStore = defineStore("products", {
     error: false,
     cart: [],
     isLoading: false,
+    pending: false,
   }),
 
   getters: {
@@ -38,8 +39,7 @@ export const dataStore = defineStore("products", {
         products = products.sort((a, b) => {
           return a.title.localeCompare(b.title);
         });
-      } 
-      else if (this.sortType === "Z-A") {
+      } else if (this.sortType === "Z-A") {
         products = products.sort((a, b) =>
           b.title.toLowerCase().localeCompare(a.title.toLowerCase())
         );
@@ -64,13 +64,14 @@ export const dataStore = defineStore("products", {
     },
     async fetchProducts() {
       // this.isLoading = true;
-      const { data } = await useFetch("https://dummyjson.com/products");
+      const { data, pending, error } = await useFetch(
+        "https://dummyjson.com/products"
+      );
       if (data.value) {
         this.products = data.value.products;
         // console.log(data.value.products);
-        // this.isLoading = false;
       } else {
-        console.log("error fetch products");
+        console.log(error);
         this.error = true;
         // this.isLoading = true;
       }

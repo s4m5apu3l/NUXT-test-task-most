@@ -7,6 +7,7 @@
       @updateSelectedCategory="updateSelectedCategory"
     />
     <div class="w-1/2 mb-4">
+
       <label>
         Sort:
         <select v-model="sortType" @change="updateSortType">
