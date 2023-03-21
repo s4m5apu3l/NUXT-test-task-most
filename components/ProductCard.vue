@@ -24,7 +24,11 @@
       >
         {{ product.description }}
       </p>
-
+      <p
+        class="text-custom mb-4 font-light text-sm md:text-sm text-center text-gray-400"
+      >
+        {{ product.price }}
+      </p>
       <div class="flex justify-center gap-x-3">
         <button @click="addProductToCart(product)" :disabled="isPending">
           <span
