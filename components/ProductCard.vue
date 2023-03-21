@@ -25,9 +25,9 @@
         {{ product.description }}
       </p>
       <p
-        class="text-custom mb-4 font-light text-sm md:text-sm text-center text-gray-400"
+        class="text-custom mb-4 font-light text-lg md:text-sm text-center text-gray-900 text-bold "
       >
-        {{ product.price }}
+        {{ product.price }} $
       </p>
       <div class="flex justify-center gap-x-3">
         <button @click="addProductToCart(product)" :disabled="isPending">
