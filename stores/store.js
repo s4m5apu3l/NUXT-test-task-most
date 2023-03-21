@@ -28,11 +28,12 @@ export const dataStore = defineStore("products", {
         products = products.filter(
           (product) => product.category === this.selectedCategory
         );
-      } else if (this.searchTerm !== "") {
-        products = products.filter((product) =>
-          product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-        );
-      }
+      } 
+      // else if (this.searchTerm !== "") {
+      //   products = products.filter((product) =>
+      //     product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+      //   );
+      // }
       if (this.sortType === "Price") {
         products = products.sort((a, b) => a.price - b.price);
       } else if (this.sortType === "A-Z") {
