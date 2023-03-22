@@ -14,7 +14,7 @@
         ></div>
       </div>
       <a
-        href="./single_post.html"
+        href="#"
         class="block text-black text-center hover:text-primary transition-colors duration-150 text-lg md:text-xl mb-1"
       >
         {{ product.title }}
